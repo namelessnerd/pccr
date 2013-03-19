@@ -1,3 +1,5 @@
 *.pyc
+*.swp
+pc2django/pc2django/static/
 settings.py
 
