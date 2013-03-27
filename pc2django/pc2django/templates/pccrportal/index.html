@@ -26,32 +26,33 @@
 			</div>
 		</div> <!-- end hero-unit text -->
 	</div><!-- end hero-unit-->
-<!-- </div> --><!-- end container -->
-<div class="container row-fluid">
-	<div class="researcher row-fluid" style="position: relative; height: 50px; margin-top: 20px; text-align: center;">
-		<div class="span4">This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
+	<div class="container">
+		<div class="researcher row-fluid" style="position: relative; height: 50px; margin-top: 20px; text-align: center;">
+			<div class="span6" style="color: #13ACBD;"><h1>Researchers</h1></div>
+			<div class="span6" style="color: #045DA9;"><h1>Participants</h1></div>
 		</div>
-		<div class="span4 res-part-icon-container row-fluid" style="height: 400px;">
-			<div class="researcher-title span6" style="color: #13ACBD;"> 
-				<h1>Researchers</h1>
-				<img src="/static/img/researcher.png" width= 66% height= 66% class="img-rounded"/></img>
-			</div>
-			<div class="participant-title span6" style="color: #045DA9;">
-				<h1>Participants</h1>
-				<img src="/static/img/participant.jpg" width= 93% height= 93% class="img-rounded"/></img>
-			</div>
-		</div>
-		<div class="span4">This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
-		</div>
-<!-- 		<div class="researcher-landing  landing span9">
-			<p class="promo-text"> Rest of the stuff goes here </p>
-			<a href="/register
-			 " class="btn-info btn-large">I am ready to participate</a>
-		</div>	 -->
-	</div><!-- end participant-container row-fluid-->
-<!-- 		<div class="participant-landing landing span9">
-			<p class="promo-text"> Rest of the stuff goes here </p>
-			<a href="#" class="btn-success btn-large">I am ready to participate</a>
-		</div> -->
-</div> <!-- end container -->
+		<div class="row-fluid">
+			<div class="researcher row-fluid span6">
+				<div class="span6">
+					<img src="/static/img/researcher.png" width= 66% height= 66% class="img-rounded"/></img>
+				</div>
+				<div class="span6">
+					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
+				</div>
+			</div><!-- end researcher row-fluid -->
+			<div class="participant row-fluid span6">
+				<div class="span6">
+					<img src="/static/img/participant.jpg" width= 93% height= 93% class="img-rounded"/></img>
+				</div>
+				<div class="span6">
+					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
+				</div>
+			</div><!-- end participant row-fluid-->
+		</div><!-- end participant-container row-fluid-->
+	</div>
+	<hr class="soften"/>
+	<section id="about">
+		{%include "pccrportal/about.html" %}
+	</section>
+	<hr class="soften"/>
 {% endblock %}

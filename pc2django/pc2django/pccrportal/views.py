@@ -9,7 +9,7 @@ def register_researcher(request):
 	return render_to_response('researcher/register.html')
 
 def about(request):
-	return render_to_response('about.html',{'title':'About PCCR','link_class_about':'active',})
+	return render_to_response('pccrportal/about.html',{'title':'About PCCR','link_class_about':'active',})
 
 #def register_participant(request):
 	#return render_to_response('pccrportal/register.html')
