@@ -1,0 +1,34 @@
+.splash{
+	height: 500px;
+	background:url('/static/img/mountain.jpg');
+	min-width: 100%;
+	text-align: center;
+}
+
+.front_button{
+	position: relative;
+	height: 100px;	
+	text-align: center;
+}
+#fb1{
+	background: #66CC33;
+}
+
+#fb2{
+	background: #FFCC33;
+}
+
+#fb3{
+	background: #33CCFF;
+}
+
+#intro_body{
+	position: relative;
+	top: 20px;
+	text-align: center;
+	line-height: 1.8em;
+}
+
+footer{
+	text-align: center;
+}
