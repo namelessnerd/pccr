@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 	url(r'^$','appy.views.home',name='pccr_home'),
 	url(r'^register/$','appy.views.register',name='pccr_home'),
 	url(r'^registerme/$','appy.views.registerme',name='pccr_home'),
+	url(r'^explore/$','appy.views.forum_explore',name='forum_explore'),
     # Examples:
     # url(r'^$', 'proj.views.home', name='home'),
     # url(r'^proj/', include('proj.foo.urls')),
