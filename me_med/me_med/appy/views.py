@@ -18,3 +18,6 @@ def registerme(request):
 			request.POST['password'])
 	user.save()
 	return render_to_response('forum_register_confirm.html')
+
+def forum_explore(request):
+		return render_to_response('forum_view.html')
