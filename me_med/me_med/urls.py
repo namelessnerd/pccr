@@ -5,10 +5,10 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^$','appy.views.home',name='pccr_home'),
-	url(r'^register/$','appy.views.register',name='pccr_home'),
-	url(r'^registerme/$','appy.views.registerme',name='pccr_home'),
-	url(r'^explore/$','appy.views.forum_explore',name='forum_explore'),
+	url(r'^memed/$','appy.views.home',name='pccr_home'),
+	url(r'^memed/register/$','appy.views.register',name='pccr_home'),
+	url(r'^memed/registerme/$','appy.views.registerme',name='pccr_home'),
+	url(r'^memed/explore/$','appy.views.forum_explore',name='forum_explore'),
     # Examples:
     # url(r'^$', 'proj.views.home', name='home'),
     # url(r'^proj/', include('proj.foo.urls')),
