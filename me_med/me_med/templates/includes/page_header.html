@@ -1,26 +1,17 @@
 <html>
 	<head>
-			<title> {{ title }} </title>
-			<link rel="stylesheet" href="/static/css/bootstrap.css">
-			<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-			<script language="javascript">
-				
-					$(document).ready(function(){
-						alert('Hello! Doc is loaded');
-
-					});
-
-			</script>
-
+		<title> {{ title }} </title>
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href='/static/css/me_med.css'>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	</head>
-
-	
 	<body>
 		{% include 'includes/nav_bar_login.html' %}
-
 		{% block forum_content %} {% endblock %}
-
-
 	</body>
+	<footer>
+		<a href="/about">About</a> | 
+		<a href="/contact">Contact</a> | 
+		<a href="/terms">Terms of Use</a>
+	</footer>
 </html>

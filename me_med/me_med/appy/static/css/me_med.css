@@ -1,4 +1,6 @@
 .splash{
+	position: relative;
+	top: -20px;
 	height: 500px;
 	background:url('/static/img/mountain.jpg');
 	min-width: 100%;

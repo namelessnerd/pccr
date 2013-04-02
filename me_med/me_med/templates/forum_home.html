@@ -1,9 +1,7 @@
 {% extends 'includes/page_header.html' %}
-
 {% block forum_content %}
-
 <div class="container row-fluid">
-			<div class="span12" style="position: relative; top: -20px; height: 500px; min-width: 100%; background:url('/static/img/mountain.jpg'); text-align: center;">
+			<div class="splash span12">
 				<br>
 				<h1>ME-MED</h1>
 				<img src='/static/img/leaf.png'></img>
@@ -14,30 +12,28 @@
 			</div>
 		</div>
 		<div class="container row-fluid">
-			<div class="span4" style="position: relative; height: 100px; background:#66CC33; text-align: center;">
+			<div class="span4 front_button" id="fb1">
 				<br>
 				<a href="/register"><h1>Register</h1></a>
 			</div>
-			<div class="span4" style="position: relative; height: 100px; background:#FFCC33; text-align: center;">
+			<div class="span4 front_button" id="fb2">
 				<br>
 				<a href="/explore"><h1>Explore</h1></a>
 			</div>
-			<div class="span4" style="position: relative; height: 100px; background:#33CCFF; text-align: center;">
+			<div class="span4 front_button" id="fb3">
 				<br>
 				<h1>Log in</h1>
 			</div>
 		</div>
-		<!-- <div class="container row-fluid" style="height:16px;">
-			<div class="span4"></div>
-			<div class="span4" style="background:66CC66;"></div>
-			<div class="span4"></div>
-		</div> -->
-<!-- 		<div class="container row-fluid" style="background:#FFCC33; height:400px; border:#FFCC33; solid 10px">
-			<div class="span1"></div>
-			<div class="span4" style="position:relative; top:25px; background:#B0B0B0; border-radius: 5px; height: 100px;;">
-				<h2 style="position: relative; left:15px;">Epilepsy</h2>
-			</div> 
-			<div class="span2"></div>
-		</div> -->
+		<div class="container row-fluid">
+			<div class="span3"></div>
+				<div class="span6" id="intro_body">
+					<img src='/static/img/leaf.png'></img>
+					<h2>Welcome to Me-Med!</h2>
+					<p>Me-Med is a community and resource for patients with chronic diseases. Share tips and recommendations, discus your challenges, find support, ask questions.</p>
+				</div>
+			<div class="span3"></div>
+		</div>
+		<br><br><br><br>
 
 	{% endblock %}
