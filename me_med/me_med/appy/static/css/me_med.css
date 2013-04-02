@@ -1,3 +1,10 @@
+/* NAV */
+#search{
+	position: relative;
+	top: 5px;
+}
+
+/* GENERAL RESOURCES */
 .splash{
 	position: relative;
 	top: -20px;
@@ -6,6 +13,8 @@
 	min-width: 100%;
 	text-align: center;
 }
+
+/* LANDING PAGE */
 
 .front_button{
 	position: relative;

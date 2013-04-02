@@ -1,16 +1,14 @@
 {% extends 'includes/page_header.html' %}
 {% block forum_content %}
 <div class="container row-fluid">
-			<div class="splash span12">
-				<br>
-				<h1>ME-MED</h1>
-				<img src='/static/img/leaf.png'></img>
-				<h3>A Patient Centric Medical Community</h3>
-				<p>A place for patients to discuss, compare, and share tips about their experiences managing chronic disease.</p>
-				<br><br>
-				<p><i>“Every mountain top is within reach if you just keep climbing.” ― Barry Finlay, Kilimanjaro and Beyond</i></p>
-			</div>
+	<div class="splash span12">
+		<h1>ME-MED</h1>
+			<img src='/static/img/leaf.png'></img>
+			<h3>A Patient Centric Medical Community</h3>
+			<p>A place for patients to discuss, compare, and share tips about their experiences managing chronic disease.</p>
+			<p><i>“Every mountain top is within reach if you just keep climbing.” ― Barry Finlay, Kilimanjaro and Beyond</i></p>
 		</div>
+
 		<div class="container row-fluid">
 			<div class="span4 front_button" id="fb1">
 				<br>
@@ -25,15 +23,18 @@
 				<a href="#" id="login"><h1>Log in</h1></a>
 			</div>
 		</div>
-		<div class="container row-fluid">
-			<div class="span3"></div>
-				<div class="span6" id="intro_body">
-					<img src='/static/img/leaf.png'></img>
-					<h2>Welcome to Me-Med!</h2>
-					<p>Me-Med is a community and resource for patients with chronic diseases. Share tips and recommendations, discus your challenges, find support, ask questions.</p>
-				</div>
-			<div class="span3"></div>
+		<div class="span4 front_button" id="fb3">
+			<h1>Log in</h1>
 		</div>
-		<br><br><br><br>
-
-	{% endblock %}
+	</div>
+	<div class="container row-fluid">
+		<div class="span3"></div>
+			<div class="span6" id="intro_body">
+				<img src='/static/img/leaf.png'></img>
+				<h2>Welcome to Me-Med!</h2>
+				<p>Me-Med is a community and resource for patients with chronic diseases. Share tips and recommendations, discus your challenges, find support, ask questions.</p>
+			</div>
+		<div class="span3"></div>
+	</div>
+</div>
+{% endblock %}
