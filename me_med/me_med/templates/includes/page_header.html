@@ -2,13 +2,38 @@
 	<head>
 		<title> {{ title }} </title>
 		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
 		<link rel="stylesheet" href='/static/css/me_med.css'>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	</head>
 	<body>
 		{% include 'includes/nav_bar_login.html' %}
 		{% block forum_content %} {% endblock %}
-	</body>
+		</body>
+		<script>
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '185034848266405', // App ID
+      channelUrl : '//ec2-50-17-198-95.compute-1.amazonaws.com/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    // Additional init code here
+
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+	<script src="/static/js/bootstrap-dropdown.js"></script>	
 	<footer>
 		<a href="/about">About</a> | 
 		<a href="/contact">Contact</a> | 
