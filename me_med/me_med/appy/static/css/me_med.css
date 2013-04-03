@@ -63,14 +63,24 @@ footer{
 .new-topic{
 	position: relative;
 	margin: 20px;
+	margin-bottom: 100px;
+	height: auto;
+	background: rgba(0,0,0,0.4); 
+}
+
+#head{
+	position: relative;
+	border-top: 50px;
+	color: white;
+	font-size: 56;
 }
 
 .topic{
 	position: relative;
 	top: 50px;
 	color: white;
-	font-size: 48;
-	height: auto;
+	font-size: 42;
+	margin-bottom: 20px;
 }
 
 .topic-info{
@@ -88,7 +98,7 @@ footer{
 	position: relative;
 	top: 50px;
 	color: white;
-	font-size: 16;
+	font-size: 14;
 }
 
 
