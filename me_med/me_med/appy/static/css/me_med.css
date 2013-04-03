@@ -60,11 +60,17 @@ footer{
 	height: 96%;
 }
 
+.new-topic{
+	position: relative;
+	margin: 20px;
+}
+
 .topic{
 	position: relative;
 	top: 50px;
 	color: white;
 	font-size: 48;
+	height: auto;
 }
 
 .topic-info{
