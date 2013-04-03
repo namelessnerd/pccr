@@ -9,7 +9,7 @@
 	position: relative;
 	top: -20px;
 	height: 500px;
-	background:url('/static/img/mountain.jpg');
+	background:url('/static/img/sutro.jpg');
 	min-width: 100%;
 	text-align: center;
 }
@@ -20,6 +20,7 @@
 	position: relative;
 	height: 100px;	
 	text-align: center;
+	padding-top: 13px;
 }
 #fb1{
 	background: #66CC33;
