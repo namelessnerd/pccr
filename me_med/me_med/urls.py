@@ -6,8 +6,6 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
 	url(r'^memed/$','appy.views.home',name='pccr_home'),
-	url(r'^memed/register/$','appy.views.register',name='pccr_home'),
-	url(r'^memed/registerme/$','appy.views.registerme',name='pccr_home'),
 	url(r'^memed/explore/$','appy.views.forum_explore',name='forum_explore'),
     # Examples:
     # url(r'^$', 'proj.views.home', name='home'),
@@ -19,3 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 )
+
+
+    # url(r'^memed/registerme/$','appy.views.registerme',name='pccr_home'),
+    # url(r'^memed/register/$','appy.views.register',name='pccr_home'),
