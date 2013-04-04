@@ -4,7 +4,18 @@
             <a class="brand" href="#">Me-Med</a>
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav pull-right">
-                    <li><a href="#">Sign In</a></li>
+										{% if user_signed %}
+											<li class="dropdown">
+                      	  <a href="#" class="dropdown-toggle"
+															data-toggle="dropdown">{{ userid }} <b class="caret"></b></a>
+                        	<ul class="dropdown-menu">
+                          	<li><a href="/memed/logout">Log out</a></li>
+        	                </ul>
+          	           </li>
+										{% else %}
+                    	<li><a id="user-sign-in" href="#">Sign In</a></li>
+										{% endif %}
+
                 </ul>
             </div> 
         </div>

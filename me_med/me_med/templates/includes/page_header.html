@@ -5,6 +5,25 @@
 		<link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
 		<link rel="stylesheet" href='/static/css/me_med.css'>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		<script language="javascript">
+
+				$(document).ready(function(){
+						$('#user-sign-in').on({
+								'mouseover':function(){alert('caught you hovering');},
+								'
+								'click':function(){
+									alert('will show login');
+								}
+						
+						
+						});
+
+				});
+
+		</script>	
+
+
 	</head>
 	<body>
 		{% include 'includes/nav_bar_login.html' %}
@@ -33,7 +52,7 @@
      ref.parentNode.insertBefore(js, ref);
    }(document));
 </script>
-	<script src="/static/js/bootstrap-dropdown.js"></script>	
+	<script src="/static/js/bootstrap.js"></script>	
 	<footer>
 		<a href="/about">About</a> | 
 		<a href="/contact">Contact</a> | 
