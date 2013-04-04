@@ -18,15 +18,8 @@ def login_user(request):
 		user= authenticate(username= username, password= password)
 		if user is not None:
 				if user.is_active:
-						if login(request, user):
-							return render_to_response('forum_register_confirm.html',{'user_signed':True,'userid':username, })
-						else:
-							return render_to_response('forum_register_confirm.html',{'user_signed':True,'userid':username, })
-							'''
-							c = {'title':'Welcome to Me-Med','login_error':True, 'message':'Check your username and password', }
-							c.update(csrf(request))
-							return render_to_response('forum_home.html',c)
-							'''
+						login(request, user)
+						return render_to_response('forum_register_confirm.html',{'user_signed':True,'userid':username, })
 				else:
 						c = {'title':'Welcome to Me-Med','login_error':True, 'message':'Your account is no longer active. Register again.', }
 						c.update(csrf(request))
@@ -39,15 +32,18 @@ def login_user(request):
 
 
 def logout_user(request):
+		print request.user
 		logout(request)
+		print request.user
 		return home(request)
 
 def registerme(request):
 	
-	name= request.POST
 	user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
 	print request.POST['password']
 	user.save()
+	user= authenticate(username= request.POST['email'],password= request.POST['password'])
+	login(request, user)
 	return render_to_response('forum_register_confirm.html',{'user_signed':True,'userid':request.POST['email'],})
 
 def forum_explore(request):
