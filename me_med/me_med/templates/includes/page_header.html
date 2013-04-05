@@ -7,20 +7,14 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 		<script language="javascript">
+				{% block script_includes %}
+				{% endblock %}
 
 				$(document).ready(function(){
-						$('#user-sign-in').on({
-								'mouseover':function(){alert('caught you hovering');},
-								'
-								'click':function(){
-									alert('will show login');
-								}
-						
-						
-						});
+					{% block on_load_script %}
+					{% endblock %}
 
 				});
-
 		</script>	
 
 

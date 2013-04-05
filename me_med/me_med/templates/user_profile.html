@@ -1,0 +1,62 @@
+{% extends 'includes/page_header.html' %}
+{% block on_load_script %}
+$('.user-profile-nav-tabs').on({
+	'click': function(){
+			var current= $(this);
+			var doc= $(document);
+			try{
+				doc.data('current').css({'border-top': 'none'});
+				$(doc.data('current-vis')).css({'display': 'none'});
+			}
+			catch(err){
+			;}
+			current.css({'border-top': '3px solid rgb(12,12,12)'});
+			$('#'+current.attr('id')+'-frame').css({'display': 'block'});
+			doc.data('current',$(this));
+			doc.data('current-vis', '#'+current.attr('id')+'-frame');
+	
+	}
+
+});
+
+ 
+{% endblock %}
+
+{% block forum_content%}
+	<div class="container-fluid" style="background: url('/static/img/userbg.jpg') ; margin-top: -20px;
+			padding: 1%;">
+			<div class="container">
+				<div class="row-fluid user-profile-container"> 
+						<div class="span3">
+							<div> User profile goes here </div>
+							<div> My recent posts go here </div>
+							<div> My recent interactions go here </div>
+					</div>
+					<div class="span9">
+							<div class="row-fluid" style="position: relative; ">
+									<a id="start-conversations" class="span3 user-profile-nav-tabs " style="background:
+											rgba(35,101,127,0.5);color:#FFFCCC" href="#"> Start
+											Conversation</a>
+									<a id="my-conversations" class="span3 user-profile-nav-tabs "
+											style="background:rgba(255,252,204,0.5)
+											;color:#E55815" href="#"> My Conversations</a>
+									<a id="explore-conversations" class="span4 user-profile-nav-tabs "
+											style="background:rgba(229, 88,21,0.5);color:#23657f" href="#"> Explore
+											Conversations</a>
+							</div>
+							<div style=" background:rgba(255,255,255,0.5); height:
+									100px;-moz-box-shadow: 0px -5px #555;
+-webkit-box-shadow: 0px -5px #555;
+box-shadow: 0px -5px #555; ">
+									{% include 'users/start_conversation.html' %}
+									{% include 'users/my_conversation.html' %}
+									{% include 'users/explore_conversation.html' %}
+
+
+
+							</div>
+					</div>
+				</div>
+		</div>
+	</div>
+{% endblock %}
