@@ -1,24 +1,24 @@
 {% extends 'includes/page_header.html' %}
 {% block forum_content %}
 <div class="container-fluid splash" >
-		<div class="container">
-				<div class="row-fluid"style="background: rgba(0,0,0,0.7); margin-top:
-					10%; height: 45%; color: #CCC;padding: 20px;">
-					<div class="span4" >
-						<h1>ME-MED</h1>
-						<img src='/static/img/leaf.png'></img>
-						<h3>A Patient Centric Medical Community</h3>
-						<p>A place for patients to discuss, compare, and share tips about their experiences managing chronic disease.</p>
-						<p><i>“Every mountain top is within reach if you just keep climbing.” ― Barry Finlay, Kilimanjaro and Beyond</i></p>
-					</div>
-					<div class="span4 recent-activity">
-							<h3> Recent Activity </h3>
+	<div class="container">
+		<div class="row-fluid"style="background: rgba(0,0,0,0.7); margin-top: 10%; height: 45%; color: #CCC; padding: 20px;">
+			<div class="span8" >
+				<h1>ME-MED</h1>
+				<img src='/static/img/leaf.png'></img>
+				<h3>A Patient Centric Medical Community</h3>
+					<p>A place for patients to discuss, compare, and share tips about their experiences managing chronic disease.</p>
+					<p><i>“Every mountain top is within reach if you just keep climbing.” ― Barry Finlay, Kilimanjaro and Beyond</i></p>
+			</div>
+			<!-- <div class="span4 recent-activity">
+				<h3> Recent Activity </h3>
 							
-					</div>
-					<div class="span4">
-						{% include "includes/utils/login.html" %}
-						{% include "includes/utils/register.html" %}
-					</div>
-				</div>
+			</div> -->
+			<div class="span4">
+				{% include "includes/utils/login.html" %}
+				{% include "includes/utils/register.html" %}
+			</div>
+		</div>
+	</div>
 </div>	
 {% endblock %}

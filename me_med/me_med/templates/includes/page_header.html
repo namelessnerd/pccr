@@ -11,12 +11,16 @@
 				$(document).ready(function(){
 						$('#user-sign-in').on({
 								'mouseover':function(){alert('caught you hovering');},
-								'
 								'click':function(){
 									alert('will show login');
 								}
-						
-						
+						});
+
+						$('.topic-wrap').on({
+							'click':function(current){
+								console.log($(this));
+								$(this).next('.postings').toggle();
+							}
 						});
 
 				});
