@@ -1,24 +1,29 @@
 {% extends 'includes/page_header.html' %}
+
+{% block  script_includes %}
+
+{% endblock %}
+
 {% block on_load_script %}
 $('.user-profile-nav-tabs').on({
 	'click': function(){
 			var current= $(this);
 			var doc= $(document);
 			try{
-				doc.data('current').css({'border-top': 'none'});
+				$(doc.data('current')).css({'text-decoration': 'none'});
 				$(doc.data('current-vis')).css({'display': 'none'});
 			}
 			catch(err){
 			;}
-			current.css({'border-top': '3px solid rgb(12,12,12)'});
+			current.css({'text-decoration': 'underline'});
 			$('#'+current.attr('id')+'-frame').css({'display': 'block'});
-			doc.data('current',$(this));
+			doc.data('current','#'+current.attr('id'));
 			doc.data('current-vis', '#'+current.attr('id')+'-frame');
 	
 	}
 
 });
-
+$('#start-conversations').click();
  
 {% endblock %}
 
@@ -44,10 +49,8 @@ $('.user-profile-nav-tabs').on({
 											style="background:rgba(229, 88,21,0.5);color:#23657f" href="#"> Explore
 											Conversations</a>
 							</div>
-							<div style=" background:rgba(255,255,255,0.5); height:
-									100px;-moz-box-shadow: 0px -5px #555;
--webkit-box-shadow: 0px -5px #555;
-box-shadow: 0px -5px #555; ">
+							<div style=" background:rgba(255,255,255,0.5);-moz-box-shadow: 0px -5px #555;
+-webkit-box-shadow: 0px -5px #555;box-shadow: 0px -5px #555; ">
 									{% include 'users/start_conversation.html' %}
 									{% include 'users/my_conversation.html' %}
 									{% include 'users/explore_conversation.html' %}
@@ -59,4 +62,19 @@ box-shadow: 0px -5px #555; ">
 				</div>
 		</div>
 	</div>
+{% endblock %}
+{% block additional_scripts %}
+  $('#cancel_conversation').on({
+    'click': function(){
+        alert('cancel');
+    }
+    });
+
+    $('#submit_conversation').on({
+    
+        'click': function(){
+        alert('submit detected');
+        return false;
+          }
+    });
 {% endblock %}

@@ -35,7 +35,7 @@
 	text-align: center; 
 	font-weight: bold;
 	font-size: 1.3em; 
-	padding-top: 5px;
+	padding-top: 2px;
 }
 
 a:hover{
@@ -133,6 +133,19 @@ footer{
 }
 
 
+/* Bootstrap extensions. These need to be moved to a common css file at some point across apps */
+
+input[class=input-large] {
+  width: 96%;
+  height: 70px ;
+  margin-bottom: 10px;
+  line-height: 30px;
+  padding: 15px 20px;
+  font-size: 2em;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
 
 
 

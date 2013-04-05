@@ -24,6 +24,8 @@
 		{% block forum_content %} {% endblock %}
 		</body>
 		<script>
+            {% block additional_scripts %}
+            {% endblock%}
   // Additional JS functions here
   window.fbAsyncInit = function() {
     FB.init({
