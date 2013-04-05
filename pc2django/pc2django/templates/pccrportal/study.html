@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/static/css/study.css">
 
 
-<div class="proj-wrapper container-fluid content-block">
+<div class="proj-wrapper container-fluid">
 	<div id="title-wrap">
 		<h1 id='title'>{{ title }}</h1>
 		<h3> {{ institution }} </h3>
@@ -24,7 +24,11 @@
 				<div class="content-block">	
 					<div class="row-fluid">
 						<div class="span4 content-block">
-							{{match.name}}
+							{% include 'includes/user_modal.html' %}
+							<a href="#mymodal" role="button" class="btn" data-toggle="modal">{{match.name}}</a>
+							<script>
+								$('#myModal').modal('toggle')
+							</script>
 						</div>
 						<div class="span8 content-block">
 							{{match.topic}}
