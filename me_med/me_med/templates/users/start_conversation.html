@@ -1,5 +1,5 @@
 <div id="start-conversations-frame" class="user-tabs" style="display:none;  width: 100%; ">
-    <form method="post" action="javascript:void(0);" style="border: 1px solid black">
+    <form id="user_conversation_form" method="post" action="javascript:void(0);" style="border: 1px solid black">
         <div class="row-fluid" style="padding: 30px 2%">
             <div class="span12">
                 <input name="conversation_title" class="input-large" placeholder="Enter title of new conversation"/>
@@ -7,7 +7,7 @@
         </div>
         <div class="row-fluid" style="padding: 0 2%">
             <div class="span12">
-                <textarea style="width: 96%;border-radius: 10px; margin-top: -30px;" rows="20" placeholder="Enter the content of the conversation. At this point we do not support HTML tags."></textarea>
+                <textarea name="conversation_message" style="width: 96%;border-radius: 10px; margin-top: -30px;" rows="20" placeholder="Enter the content of the conversation. At this point we do not support HTML tags."></textarea>
             </div>
         </div>
         <div class="row-fluid" style="padding-bottom: 2%">
@@ -16,9 +16,10 @@
                 <div id= "cancel_conversation" style="cursor: pointer; color: white"><button class="btn-large btn-danger"> Cancel </div>
             </div>
             <div class="span4" style="padding-left: 70px">
-                <div id= "submit_conversation" style="color: white; cursor: pointer;"><button type="submit" class="btn-large btn-success"> Start Conversation</a>
+                <div id= "submit_conversation" style="color: white; cursor:
+										pointer;"><button type="submit" class="btn-large
+												btn-success"> Start Conversation</a></div>
             </div>
         </div>
-
     </form>
 </div>

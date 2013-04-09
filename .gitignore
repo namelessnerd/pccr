@@ -1,5 +1,6 @@
 *.pyc
 *.swp
+*.1
 settings.py
 .DS_Store
 pc2django/pc2django/static/

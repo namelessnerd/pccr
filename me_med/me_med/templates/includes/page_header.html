@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
 		<link rel="stylesheet" href='/static/css/me_med.css'>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="/static/js/ajax_helper.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 		<script language="javascript">
 				{% block script_includes %}
@@ -22,7 +23,6 @@
 	<body>
 		{% include 'includes/nav_bar_login.html' %}
 		{% block forum_content %} {% endblock %}
-		</body>
 		<script>
             {% block additional_scripts %}
             {% endblock%}
@@ -54,4 +54,5 @@
 		<a href="/contact">Contact</a> | 
 		<a href="/terms">Terms of Use</a>
 	</footer>
+	</body>
 </html>

@@ -28,38 +28,35 @@ $('#start-conversations').click();
 {% endblock %}
 
 {% block forum_content%}
-	<div class="container-fluid" style="background: url('/static/img/userbg.jpg') ; margin-top: -20px;
+	<div class="container-fluid" style="background: url('/static/img/sutro.jpg') ; margin-top: -20px;
 			padding: 1%;">
-			<div class="container">
-				<div class="row-fluid user-profile-container"> 
-						<div class="span3">
-							<div> User profile goes here </div>
-							<div> My recent posts go here </div>
-							<div> My recent interactions go here </div>
-					</div>
-					<div class="span9">
-							<div class="row-fluid" style="position: relative; ">
-									<a id="start-conversations" class="span3 user-profile-nav-tabs " style="background:
+		<div class="container">
+			<div class="row-fluid user-profile-container"> 
+				<div class="span3">
+					<div> User profile goes here </div>
+					<div> My recent posts go here </div>
+					<div> My recent interactions go here </div>
+				</div>
+				<div class="span9">
+					<div class="row-fluid" style="position: relative; ">
+						<a id="start-conversations" class="span3 user-profile-nav-tabs " style="background:
 											rgba(35,101,127,0.5);color:#FFFCCC" href="#"> Start
 											Conversation</a>
-									<a id="my-conversations" class="span3 user-profile-nav-tabs "
+						<a id="my-conversations" class="span3 user-profile-nav-tabs "
 											style="background:rgba(255,252,204,0.5)
 											;color:#E55815" href="#"> My Conversations</a>
-									<a id="explore-conversations" class="span4 user-profile-nav-tabs "
+						<a id="explore-conversations" class="span4 user-profile-nav-tabs "
 											style="background:rgba(229, 88,21,0.5);color:#23657f" href="#"> Explore
 											Conversations</a>
-							</div>
-							<div style=" background:rgba(255,255,255,0.5);-moz-box-shadow: 0px -5px #555;
+					</div>
+					<div style=" background:rgba(255,255,255,0.5);-moz-box-shadow: 0px -5px #555;
 -webkit-box-shadow: 0px -5px #555;box-shadow: 0px -5px #555; ">
-									{% include 'users/start_conversation.html' %}
-									{% include 'users/my_conversation.html' %}
-									{% include 'users/explore_conversation.html' %}
-
-
-
-							</div>
+						{% include 'users/start_conversation.html' %}
+						{% include 'users/my_conversation.html' %}
+						{% include 'users/explore_conversation.html' %}
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}
@@ -73,8 +70,14 @@ $('#start-conversations').click();
     $('#submit_conversation').on({
     
         'click': function(){
-        alert('submit detected');
-        return false;
-          }
+					$.ajax({
+  					type: "POST",
+  					url: '/memed/user/add_conversation',
+  					data: $('#user_conversation_form').serialize(),
+						success: function(data){alert(data);},
+  					dataType:'text' 
+					});
+        	return false;
+        }
     });
 {% endblock %}

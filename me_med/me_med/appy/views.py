@@ -4,6 +4,10 @@ from django.core.context_processors import csrf
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+import simplejson
+
+from appy.models import Conversation
 
 
 def home(request):
@@ -46,7 +50,7 @@ def registerme(request):
 	user.save()
 	user= authenticate(username= request.POST['email'],password= request.POST['password'])
 	login(request, user)
-	return redirect('/memed/user')
+	return redirect('/memed/user:q!')
 
 @login_required
 def show_profile(request):
@@ -55,6 +59,15 @@ def show_profile(request):
 
 def forum_explore(request):
 		return render_to_response('forum_view.html')
+
+def add_conversation(request):
+		conversation= Conversation(conversation_title=request.POST['conversation_title'],conversation_message=
+						request.POST['conversation_message'].strip(), posted_by= request.user)
+		try:
+			conversation.save()
+			return HttpResponse(simplejson.dumps({'status':1,'title':request.POST['conversation_title'],'id':conversation.id,}))
+		except Exception, e:
+			return HttpResponse(simplejson.dumps({'status':0,}))
 
 # def register(request):
 # 	c = {}
