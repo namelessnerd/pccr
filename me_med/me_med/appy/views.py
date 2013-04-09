@@ -35,8 +35,6 @@ def login_user(request):
 				c.update(csrf(request))
 				return render_to_response('forum_home.html',c)
 
-
-
 def logout_user(request):
 		print request.user
 		logout(request)
@@ -44,13 +42,18 @@ def logout_user(request):
 		return home(request)
 
 def registerme(request):
-	
-	user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
-	print request.POST['password']
-	user.save()
-	user= authenticate(username= request.POST['email'],password= request.POST['password'])
-	login(request, user)
-	return redirect('/memed/user:q!')
+	if request.POST['code']=='acn techlabs dh 2013':
+		user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
+		print request.POST['password']
+		user.save()
+		user= authenticate(username= request.POST['email'],password= request.POST['password'])
+		login(request, user)
+		return redirect('/memed/user')
+	else:
+		c = {'title':'Welcome to Me-Med','login_error':True, 'message':'The code you entered is wrong',}
+		c.update(csrf(request))
+		return render_to_response('forum_home.html',c)
+
 
 @login_required
 def show_profile(request):
@@ -60,6 +63,7 @@ def show_profile(request):
 def forum_explore(request):
 		return render_to_response('forum_view.html')
 
+@login_required
 def add_conversation(request):
 		conversation= Conversation(conversation_title=request.POST['conversation_title'],conversation_message=
 						request.POST['conversation_message'].strip(), posted_by= request.user)
@@ -68,18 +72,5 @@ def add_conversation(request):
 			return HttpResponse(simplejson.dumps({'status':1,'title':request.POST['conversation_title'],'id':conversation.id,}))
 		except Exception, e:
 			return HttpResponse(simplejson.dumps({'status':0,}))
-
-# def register(request):
-# 	c = {}
-# 	c.update(csrf(request))
-# 	return render_to_response('forum_register.html',c)
-
-# def registerme(request):
-	
-# 	name= request.POST
-# 	user = User.objects.create_user(request.POST['name'], request.POST['email'],
-# 			request.POST['password'])
-# 	user.save()
-# 	return render_to_response('forum_register_confirm.html')
 
 
