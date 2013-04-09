@@ -43,9 +43,15 @@ def logout_user(request):
 
 def registerme(request):
 	if request.POST['code']=='acn techlabs dh 2013':
-		user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
-		print request.POST['password']
-		user.save()
+		try:
+			user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
+			print request.POST['password']
+			user.save()
+		except Exception:
+			c = {'title':'Welcome to Me-Med','login_error':True, 'message':'Email you entered is not unique',}
+			c.update(csrf(request))
+			return render_to_response('forum_home.html',c)
+
 		user= authenticate(username= request.POST['email'],password= request.POST['password'])
 		login(request, user)
 		return redirect('/memed/user')
