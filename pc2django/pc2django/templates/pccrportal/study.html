@@ -1,0 +1,55 @@
+{% include  'includes/nav.html' %}
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/study.css">
+<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
+<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
+
+
+<div class="proj-wrapper container-fluid">
+	<div id="title-wrap">
+		<h1 id='title'>{{ title }}</h1>
+		<h3> {{ institution }} </h3>
+		<p>{{ researchers }}</p>
+	</div>
+	<div class="row-fluid" style="margin-top: 1%">
+		<div class="span6 content-block scroller">
+			<div class="content-block">
+				<img src="/static/img/wall.jpg"></img>
+			</div>
+			<div class="content-block">
+				{{ description }}
+			</div>
+		</div>
+		<div class="container span6 content-block">
+		{% block content %}
+			{% for match in matches%}
+				<div class="content-block">	
+					<div class="row-fluid">
+						<div class="span4 content-block">
+							{% include 'includes/user_modal.html' %}
+							<a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">{{match.name}}</a>
+						</div>
+						<div class="span8 content-block">
+							{{match.topic}}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endblock %}
+		<script>
+			$(document).ready(function() {
+				$('#mymodal').bind('show', function () {
+					document.getElementById ("xlInput").value = document.title;
+					});
+				});
+			function closeDialog () {
+				$('#mymodal').modal('hide'); 
+				};
+			function okClicked () {
+				document.title = document.getElementById ("xlInput").value;
+				closeDialog ();
+				};
+		</script>
+		</div>
+	</div>
+</div>

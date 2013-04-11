@@ -14,6 +14,19 @@
 				$(document).ready(function(){
 					{% block on_load_script %}
 					{% endblock %}
+						$('#user-sign-in').on({
+								'mouseover':function(){alert('caught you hovering');},
+								'click':function(){
+									alert('will show login');
+								}
+						});
+
+						$('.topic-wrap').on({
+							'click':function(current){
+								console.log($(this));
+								$(this).next('.postings').toggle();
+							}
+						});
 
 				});
 		</script>	

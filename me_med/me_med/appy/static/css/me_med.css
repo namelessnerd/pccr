@@ -1,4 +1,4 @@
- NAV */
+/* NAV */
 #search{
 	position: relative;
 	top: 5px;
@@ -96,31 +96,32 @@ footer{
 	color: white;
 	/*font-size: 56;*/
 	height: 100px;
-	border: solid black 1px;
+	/*border: solid black 1px;*/
 }
 
 .topic-wrap{
 	/*position: relative;*/
 	/*padding: 2%;*/
 	background: rgba(0,0,0,0.4); 
-	border: solid black 1px;
+	/*border: solid black 1px;*/
 }
 
 .topic{
 	/*position: relative;*/
+	margin-left: 10px;
 	color: white;
 	font-size: 42;
 	/*margin-bottom: 20px;*/
 	/*height: auto;*/
-	border: solid black 1px;
+	/*border: solid black 1px;*/
 }
 
 .topic-info{
 	/*position: relative;*/
-	top: 50px;
+	margin-top: 20px;
 	color: white;
 	font-size: 20;
-	border: solid black 1px;	
+	/*border: solid black 1px;	*/
 }
 
 .interact{
@@ -129,9 +130,14 @@ footer{
 	/*position: relative;*/
 	color: white;
 	font-size: 14;
-	border: solid black 1px;
+	/*border: solid black 1px;*/
 }
 
+.postings{
+	border-top: black solid 2px;
+	background: rgba(0,0,0,0.6);
+	padding-top: 1%
+}
 
 /* Bootstrap extensions. These need to be moved to a common css file at some point across apps */
 
@@ -145,10 +151,19 @@ input[class=input-large] {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
+	}
+
+.post-title{
+	color:white;
+	text-align: right;
+	font-size: 18;
 }
 
-
-
+.post-content{
+	color: white;
+	text-align: left;
+	font-size: 14;
+}
 
 
 

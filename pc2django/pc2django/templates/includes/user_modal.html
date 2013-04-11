@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/study.css">
+<div class="modal hide fade" id="mymodal" tabindex="-1" role="dialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h1>{{ patient_name }}</h1>
+	</div>
+	<div class="modal-body">
+		<p>Sex: {{ patient_sex }}</p>
+		<p>Date of Birth: {{ patient_dob }}</p>
+		<div class="recommender-box">
+			Recommended for:
+			{% block content %}
+				{% for reason in reasons %}
+					<div>
+					<a href='#'>{{reason.reason}} 
+					{{reason.detail}}</a>
+					</div>
+				{% endfor %}
+			{% endblock %}
+		</div>
+	</div>
+	<div class="modal-footer">
+    	<a href="#" class="btn">Close</a>
+    	<a href="#" class="btn btn-primary">Contact</a>
+  	</div>
+</div>
