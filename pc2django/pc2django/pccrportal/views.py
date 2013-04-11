@@ -2,6 +2,9 @@
 
 from django.shortcuts import render_to_response
 
+def foo(request):
+	return render_to_response('pccrportal/foo.html')
+
 def home(request):
 	return render_to_response('pccrportal/index.html',{'title':'Platform for Patient Centric Collaborative Care','link_class_home':'active',})
 
@@ -26,6 +29,7 @@ def user_modal(request):
 	inputs['patient_dob']='1/18/1991'
 	inputs['reasons']=[{'reason':reason, 'detail':'detail'} for reason in ['Member of', 'Posts on', 'Has started posts on',]]
 	return render_to_response('pccrportal/user_modal.html',inputs,)
+
 
 
 #def register_participant(request):

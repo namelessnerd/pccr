@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^register/', 'pccrportal.views.register_researcher',name='register_researcher'),
     url(r'^study','pccrportal.views.study',name='pccr_study'),
     url(r'^user','pccrportal.views.user_modal',name='pccr_user_modal'),  
+    url(r'^foo','pccrportal.views.foo',name='pccr_foo'),  
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),

@@ -1,6 +1,8 @@
 {% include  'includes/nav.html' %}
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <link rel="stylesheet" href="/static/css/study.css">
+<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
+<script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
 
 
 <div class="proj-wrapper container-fluid">
@@ -25,10 +27,7 @@
 					<div class="row-fluid">
 						<div class="span4 content-block">
 							{% include 'includes/user_modal.html' %}
-							<a href="#mymodal" role="button" class="btn" data-toggle="modal">{{match.name}}</a>
-							<script>
-								$('#myModal').modal('toggle')
-							</script>
+							<a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">{{match.name}}</a>
 						</div>
 						<div class="span8 content-block">
 							{{match.topic}}
@@ -37,6 +36,20 @@
 				</div>
 			{% endfor %}
 		{% endblock %}
+		<script>
+			$(document).ready(function() {
+				$('#mymodal').bind('show', function () {
+					document.getElementById ("xlInput").value = document.title;
+					});
+				});
+			function closeDialog () {
+				$('#mymodal').modal('hide'); 
+				};
+			function okClicked () {
+				document.title = document.getElementById ("xlInput").value;
+				closeDialog ();
+				};
+		</script>
 		</div>
 	</div>
 </div>
