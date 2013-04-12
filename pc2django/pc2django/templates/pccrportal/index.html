@@ -1,58 +1,70 @@
 {% extends 'skeleton_template.html' %}
 {% block main_content%}
-<div class="hero-wrapper container" style="width: 100%; height=400px; background:url('/static/img/main_bg.jpg');">
+<div class="hero-wrapper container" style="width: 100%; height:450px;
+		background:url('/static/img/main_bg.jpg'); margin-top: -20px;">
 <!-- 	<div class="container" style="position: relative; top: 10px;">
  -->  	    <!-- Main hero unit -->
-		<div class="hero-unit" style="position: relative; background: none; height: 450px;">
-			<div style="position: relative; top: 0px; left: 0px; width: 100%; height: 200px; background: black; opacity: 0.3; border-radius: 10px;">
-			</div>					
-			<div style="position: relative; color: white; top: -175px; left: 20px; width: 100%; height: 40px;">
+		<div class="hero-unit" style="position: relative; background: none; height:
+				450px;">
+			<div style="position: relative; color: white; 
+					width: 100%; height: 100px;background: rgba(0,0,0,0.6); padding:
+					10px;margin-top: -30px;">
 				<h1>Patient Centric Collaborative Research</h1>
-        		<p> Connecting researchers and participants to realize patient centric outcomes easier.</p>
+        		<p> Connecting researchers and participants to realize improved patient
+						centric outcomes</p>
 			</div>
-			<div class="row-fluid" style="color: white">
-				<div class="span4" style="text-align: center"><img src="/static/img/star.png"></img>
+			<div class="row-fluid" style="color: white; margin-top: 60px;">
+				<div class="span3" style="text-align: center"><img src="/static/img/star.png"></img>
 					<br><br>Something catchy will go here, using many characters of ASCII.
 					<br> Another sentence for dramatic effect.
 				</div>
-				<div class="span4" style="text-align: center"><img src="/static/img/magnify.png"></img>
+				<div class="span3" style="text-align: center"><img src="/static/img/magnify.png"></img>
 					<br><br>Something catchy will go here, using many characters of ASCII.
 					<br> And for emphasis we'll say something else here to drive home the point.
 				</div>
-				<div class="span4" style="text-align: center"><img src="/static/img/speaker.png"></img>
-					<br><br>Something catchy will go here, using many characters of ASCII.
-					<br>Hopefully by now you have been convinced.
-				</div>
+				<div class="span3"> Some other text goes here </div>
 			</div>
 		</div> <!-- end hero-unit text -->
 	</div><!-- end hero-unit-->
-	<div class="container">
-		<div class="researcher row-fluid" style="position: relative; height: 50px; margin-top: 20px; text-align: center;">
+	<div style="width: 350px; position: absolute;  top: 150px;left: 75%">
+					{% include "includes/utils/login.html" %} 
+	</div>
+	<div class="container" >
+		<div class="researcher" style="position: relative; height: 50px; margin-top: 20px; ">
+				<div class="row-fluid">
 			<div class="span6" style="color: #13ACBD;"><h1>Researchers</h1></div>
-			<div class="span6" style="color: #045DA9;"><h1>Participants</h1></div>
+			<div class="span6" style="color: #045DA9; text-align: left"><h1>Participants</h1></div>
+				</div>
 		</div>
 		<div class="row-fluid">
 			<div class="researcher row-fluid span6">
-				<div class="span6">
-					<img src="/static/img/researcher.png" width= 66% height= 66% class="img-rounded"/></img>
+					<div class="span4">
+					<img src="/static/img/researcher.png" width="80%" height="80%"></img>
 				</div>
-				<div class="span6">
+				<div class="span8" style="margin-left: -10px;">
 					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
 				</div>
 			</div><!-- end researcher row-fluid -->
-			<div class="participant row-fluid span6">
+			<div class="researcher row-fluid span6">
+					<div class="span4">
+					<img src="/static/img/participant.jpg" width= 93% height= 93% class="img-rounded"/></img>
+				</div>
+				<div class="span8" style="margin-left: 5px;">
+					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
+				</div>
+			</div>
+			<!-- <div class="participant row-fluid span5">
 				<div class="span6">
 					<img src="/static/img/participant.jpg" width= 93% height= 93% class="img-rounded"/></img>
 				</div>
 				<div class="span6">
 					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
 				</div>
-			</div><!-- end participant row-fluid-->
+		</div>--><!-- end participant row-fluid-->
 		</div><!-- end participant-container row-fluid-->
 	</div>
 	<hr class="soften"/>
 	<section id="about">
-		{%include "pccrportal/about.html" %}
 	</section>
-	<hr class="soften"/>
+	<!-- <hr class="soften"/> -->
 {% endblock %}

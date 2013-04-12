@@ -1,0 +1,63 @@
+<div style="background: #CCC; color: #000; padding-top: 1%; border-radius:
+		10px;border: 10px rgb(192,192,192) solid; margin-bottom: 20px;margin-top:
+		20px;padding-left: 40px;">
+							<h4> Login / Register </h4>
+							<hr class="soften" style="margin-top: -10px;"/>
+							<form action="/memed/login/" method="post" style="margin-top:
+									-40px;">
+									{% csrf_token %}
+									<div class="row-fluid">
+										<div class="input-prepend">
+											<span class="add-on">@</span>
+											<input class="span12" id="prependedInput" name="email" 
+													type="text" placeholder="Username">
+										</div>		
+									</div>
+									<div class="row-fluid">
+										<div class="input-prepend">
+												<span class="add-on"><i class="icon-lock"></i></span>
+											<input class="span12" id="prependedInput" name="password"
+													type="password" placeholder="Password">
+											
+										</div>
+										
+									</div>
+									<!--
+									<div class="row-fluid">
+										<div class="input-prepend">
+												<span class="add-on"><i class="icon-lock"></i></span>
+											<input class="span12" id="prependedInput" type="password"
+											placeholder="Re-enter password if registering">
+											
+										</div>
+										
+									</div>
+									-->
+									{% if login_error %}
+										<div class="alert alert-error">
+									  	<button type="button" class="close" data-dismiss="alert">&times;</button>
+									 			{{ message }} 
+										</div>
+									{% endif %}
+									<div class="row-fluid" style="padding-left: 18%;
+											padding-bottom: 5px;">
+										<!--<div class="span6" >
+												<a href=""><button class="btn btn-small btn-primary
+																">Connect to Facebook </button>
+												</a> 
+										</div>-->
+										<div class="span3">
+												<a href=""><button type="submit" class="btn btn-small
+																btn-info">Login</button>
+												</a>
+											</div>
+										<div class="span3">
+												<a href=""><button type="submit" class="btn btn-small
+																btn-info"> Register </button>
+												</a>
+
+										</div>
+									</div>
+							</form>
+						</div>
+

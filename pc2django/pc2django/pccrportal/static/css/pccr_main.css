@@ -26,7 +26,7 @@ section.body:after{
 	z-index: 1;
 	content: ' ';
 	background: url(/static/img/landing_header_shadow.592656.png) top center no-repeat;
-	top: 555px;
+	top: 407px;
 }
 
 section.body {
