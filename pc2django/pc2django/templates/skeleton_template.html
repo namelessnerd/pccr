@@ -4,9 +4,24 @@
 		<!-- CSS includes -->
 		<link rel="stylesheet" href="/static/css/bootstrap.css">
 		<link rel="stylesheet" href="/static/css/pccr_main.css">
+		<script src="/static/js/jqm-191.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script language="javascript">
+				{% block script_includes %}
+				{% endblock %}
+
+				$(document).ready(function(){
+					{% block on_load_script %}
+					{% endblock %}
+				});
+		</script>	
+
+
 	</head>
 	<body style="top: 0px; left: 0px; width: 100%;height: 1000px;">
-		{% include  'includes/nav.html' %}
+		{% if show_nav %}
+			{% include  'includes/nav_bar_login.html' %}
+		{% endif %}
 		<section class="body">
 			{% block main_content %} {% endblock %}
 			<!-- <footer style="text-align: center">
@@ -16,19 +31,12 @@
             <!-- Le javascript
             ================================================== -->
             <!-- Placed at the end of the document so the pages load faster -->
-            <script src="/static/js/jquery.js"></script>
-            <script src="/static/js/bootstrap-transition.js"></script>
-            <script src="/static/js/bootstrap-alert.js"></script>
-            <script src="/static/js/bootstrap-modal.js"></script>
-            <script src="/static/js/bootstrap-dropdown.js"></script>
-            <script src="/static/js/bootstrap-scrollspy.js"></script>
-            <script src="/static/js/bootstrap-tab.js"></script>
-            <script src="/static/js/bootstrap-tooltip.js"></script>
-            <script src="/static/js/bootstrap-popover.js"></script>
-            <script src="/static/js/bootstrap-button.js"></script>
-            <script src="/static/js/bootstrap-collapse.js"></script>
-            <script src="/static/js/bootstrap-carousel.js"></script>
-            <script src="/static/js/bootstrap-typeahead.js"></script>
+            <script src="/static/js/ajax-helper.js"></script>
+						<script language="javascript">
+							{% block additional_scripts %}
+
+							{% endblock%}
+						</script>
         </body>
 	</body>
 </html>

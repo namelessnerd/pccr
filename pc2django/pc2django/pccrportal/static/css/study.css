@@ -2,18 +2,16 @@
 .proj-wrapper{
 	padding: 1%;
 	height:100%;
+	margin-top: -20px;
 }
 
 #title-wrap{
 	background: rgba(0,0,0,0.6);
-	min-height: 15%;
 	color: white;
 	padding: 1%;
 }
 
-#title{
-	margin-top: 60px;
-}
+
 
 .content-block{
 	/*margin-top: 2%;*/

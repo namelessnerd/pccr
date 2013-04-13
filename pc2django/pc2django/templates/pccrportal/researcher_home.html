@@ -1,0 +1,84 @@
+{% extends 'skeleton_template.html' %}
+
+{% block on_load_script %}
+$('.project-tab').on({
+	'click': function(){
+			var current= $(this);
+			var doc= $(document);
+			try{
+				$(doc.data('current')).css({'text-decoration': 'none'});
+				$(doc.data('current-vis')).css({'display': 'none'});
+			}
+			catch(err){
+			;}
+			current.css({'text-decoration': 'underline'});
+			$('#'+current.attr('id')+'-frame').css({'display': 'block'});
+			doc.data('current','#'+current.attr('id'));
+			doc.data('current-vis', '#'+current.attr('id')+'-frame');
+	
+	}
+
+});
+$('#my-projects').click();
+ 
+{% endblock %}
+
+
+{% block main_content%}
+<div> 
+		
+<!-- 	<div class="container" style="position: relative; top: 10px;">
+ -->  	    <!-- Main hero unit -->
+ <div class="container" style="text-align: center;  color: white; background:
+		 rgba(19,19,19,0.6); border: 1px dotted rgb(19,19,19); border-radius: 10px;">
+ <h2> Welcome back, {{userid}}</h2>
+
+ 	<div class="row-fluid">
+		<div id="my-projects" class="span4 project-tab" style="background: blue;
+				margin-left: 10px;"> <h3> My Projects </h3> </div>
+		<div id="new-project" class="span4 project-tab" style="background: blue"><h3> New Project </h3> </div>
+ 	</div>
+ 	<div class="project-description" style="margin: 0 10px 10px 10px;";>
+			{% include 'pccrportal/myprojects.html' %}
+			{% include 'pccrportal/newproject.html' %}
+	</div>
+	<!-- <hr class="soften"/> -->
+	<section id="about">
+	</section>
+</div>
+	<!-- <hr class="soften"/> -->
+	
+	
+
+
+{% endblock %}
+{% block additional_scripts %}
+		
+	$('.project-tab').on({
+    
+        'click': function(){
+        }
+    });
+
+	$('#pccr-register').on({
+    
+        'click': function(){
+					$.ajax({
+  					type: "POST",
+  					url: '/pccr/register/',
+  					data: $('#login-register-form').serialize(),
+						success: function(data){alert(data);},
+  					dataType:'text' 
+					});
+        	return false;
+        }
+    });
+		$('.start-project').on({
+		 'click':function(){
+				$('#new-project').click();
+		 }
+		});
+
+	{% endblock %}
+
+

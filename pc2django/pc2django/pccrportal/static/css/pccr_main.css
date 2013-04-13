@@ -19,6 +19,7 @@ a{
 	color:#5686ac;
 }
 
+/*
 section.body:after{
 	position: absolute;
 	width: 100%;
@@ -28,7 +29,14 @@ section.body:after{
 	background: url(/static/img/landing_header_shadow.592656.png) top center no-repeat;
 	top: 407px;
 }
+*/
 
+.project-tab{
+	border-top-right-radius: 10px; 
+	border-top-left-radius:10px; 
+	margin-left: 10px;
+	cursor: pointer;
+}
 section.body {
 	background: url(/static/img/noise.592656.png) #edebde;
 	position: relative;
@@ -46,3 +54,60 @@ background-image: -o-linear-gradient(left,transparent,rgba(0,0,0,.1),transparent
 border: 0;
 }
 
+input[class=input-large] {
+  width: 96%;
+  height: 70px ;
+  margin-bottom: 10px;
+  line-height: 30px;
+  padding: 15px 20px;
+  font-size: 2em;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+	}
+
+.project_desc{
+	color: white;
+	text-align: left;
+	cursor: pointer;
+}
+
+.project_desc a.hover{
+	color: inherit;
+}
+
+/* imported from study */
+/* Study Page */
+.proj-wrapper{
+	padding: 1%;
+	height:100%;
+	margin-top: -20px;
+}
+
+#title-wrap{
+	background: rgba(0,0,0,0.6);
+	color: white;
+	padding: 1%;
+}
+
+
+
+.content-block{
+	/*margin-top: 2%;*/
+	background: rgba(0,0,0,0.6);
+	color: white;
+	padding: 1%;
+	height:auto;
+	border: 1px solid black;
+}
+
+.scroller{
+	overflow: auto;
+}
+
+/* Modal */
+
+.recommender-box{
+	border-top: 1px solid rgba(0,0,0,0.4);
+	padding-top: 2%;
+}

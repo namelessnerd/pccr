@@ -1,0 +1,37 @@
+<div id="new-project-frame" class="user-tabs" style="display:none;  width: 100%; ">
+    <form id="new-project-form" method="post" action="/pccr/add_project">
+				{% csrf_token%}
+        <div class="row-fluid" style="padding: 30px 0px;">
+            <div class="span12">
+                <input name="pcori-url" class="input-large" placeholder="PCORI URL (for projects in PCORI)"/>
+            </div>
+        </div>
+				<div class="row-fluid" style="margin-top: -30px">
+            <div class="span12">
+                <input name="project-title" class="input-large"
+								placeholder="Enter Project Title"/>
+            </div>
+        </div>
+
+        <div class="row-fluid" style="margin-top: 30px">
+            <div class="span12">
+								<textarea name="project-description" style="width: 96%;border-radius: 10px; margin-top: -30px;" rows="20" 
+										placeholder="Enter project description. At this point we do not support HTML tags."></textarea>
+            </div>
+        </div>
+        <div class="row-fluid" style="padding-bottom: 2%">
+            <div class="span6"></div> 
+            <div class="span2" style="padding-left: 90px">
+								<div id= "cancel-project" style="cursor: pointer; color: white">
+										<button class="btn-large btn-danger"> Cancel </button>
+								</div>
+            </div>
+            <div class="span4" style="padding-left: 70px">
+                <div id= "submit-project" style="color: white; cursor:
+										pointer;">
+										<button type="submit" class="btn-large btn-success"> Start Project </button>
+								</div>
+            </div>
+        </div>
+    </form>
+</div>

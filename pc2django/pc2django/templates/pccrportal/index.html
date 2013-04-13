@@ -39,15 +39,15 @@
 		<div class="row-fluid">
 			<div class="researcher row-fluid span6">
 					<div class="span4">
-					<img src="/static/img/researcher.png" width="80%" height="80%"></img>
+					<img src="/static/img/researcher.png" width="93%" height="93%"></img>
 				</div>
-				<div class="span8" style="margin-left: -10px;">
+				<div class="span8" style="margin-left: 5px;">
 					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
 				</div>
 			</div><!-- end researcher row-fluid -->
 			<div class="researcher row-fluid span6">
 					<div class="span4">
-					<img src="/static/img/participant.jpg" width= 93% height= 93% class="img-rounded"/></img>
+					<img src="/static/img/participant.png" width= 93% height= 93% class="img-rounded"/></img>
 				</div>
 				<div class="span8" style="margin-left: 5px;">
 					This is where the description goes. There will be many words, letter, spaces, sentences, and some punctuation as well.
@@ -67,4 +67,36 @@
 	<section id="about">
 	</section>
 	<!-- <hr class="soften"/> -->
+	
+	
+
+
 {% endblock %}
+{% block additional_scripts %}
+		
+	$('#pccr-login').on({
+    
+        'click': function(){
+					$('#action').val('login');
+					$('#login-register-form').submit();
+        }
+    });
+
+	$('#pccr-register').on({
+    
+        'click': function(){
+					$.ajax({
+  					type: "POST",
+  					url: '/pccr/register/',
+  					data: $('#login-register-form').serialize(),
+						success: function(data){alert(data);},
+  					dataType:'text' 
+					});
+        	return false;
+        }
+    });
+
+
+	{% endblock %}
+
+

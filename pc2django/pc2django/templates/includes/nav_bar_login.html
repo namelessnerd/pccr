@@ -1,7 +1,10 @@
 <div class="navbar navbar-inverse ">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/memed">Me-Med</a>
+            <a class="brand" href="/pccr">PCCR</a>
+						{% if current_researcher_is_project_owner %}
+							 <a class="brand" href="/pccr/researcher">Back to my projects</a>
+						{% endif %}
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav pull-right">
 										{% if user_signed %}
@@ -9,7 +12,7 @@
                       	  <a href="#" class="dropdown-toggle"
 															data-toggle="dropdown">{{ userid }} <b class="caret"></b></a>
                         	<ul class="dropdown-menu">
-                          	<li><a href="/memed/logout">Log out</a></li>
+                          	<li><a href="/pccr/logout">Log out</a></li>
         	                </ul>
           	           </li>
 										{% else %}
