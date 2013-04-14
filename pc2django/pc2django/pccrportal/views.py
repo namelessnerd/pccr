@@ -16,7 +16,7 @@ def foo(request):
 def home(request):
 	template_dict= {
 			'title':'Patient Centric Collaborative Research','link_class_home':'active',
-			'show_nav':0,	
+			'show_nav':0,
 			}
 	template_dict.update(csrf(request))
 	return render_to_response('pccrportal/index.html',template_dict)
@@ -39,20 +39,20 @@ def register_researcher(request):
 	else:
 		c = {'title':'Welcome to Me-Med','login_error':True, 'message':'The code you entered is wrong',}
 		c.update(csrf(request))
-		return render_to_response('pccrportal/index.html',c)	
+		return render_to_response('pccrportal/index.html',c)
 
 
 def login_register_user(request):
 		if request.POST['action']=='login':
 				return login_user(request)
-		elif request['action']=='register':
+		elif request.POST['action']=='register':
 				return register_researcher(request)
 		else:
 				c = {'title':'Patient Centric Collaborative Care','login_error':True,
 								'message':'The action you are doing is not supported',}
 				c.update(csrf(request))
-				return render_to_response('pccrportal/index.html',c)	
-	
+				return render_to_response('pccrportal/index.html',c)
+
 def login_user(request):
 		print request
 		username= request.POST['email']
@@ -76,7 +76,7 @@ def researcher_home(request):
 	user_projects= Project.objects.filter(posted_by=request.user)
 	template_dict= {
 			'title':'PCCR Researcher Home','link_class_home':'active',
-			'show_nav':1,	
+			'show_nav':1,
 			'user_signed':True,
 			'userid':request.user.username,
 			'project_list': user_projects,

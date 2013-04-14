@@ -85,14 +85,8 @@
 	$('#pccr-register').on({
     
         'click': function(){
-					$.ajax({
-  					type: "POST",
-  					url: '/pccr/register/',
-  					data: $('#login-register-form').serialize(),
-						success: function(data){alert(data);},
-  					dataType:'text' 
-					});
-        	return false;
+					$('#action').val('register');
+					$('#login-register-form').submit();
         }
     });
 
