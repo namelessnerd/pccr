@@ -22,6 +22,7 @@ def home(request):
 	return render_to_response('pccrportal/index.html',template_dict)
 
 def register_researcher(request):
+	print request
 	if request.POST['code']=='acn techlabs dh 2013':
 		try:
 			user = User.objects.create_user(username= request.POST['email'],password= request.POST['password'])
@@ -31,11 +32,9 @@ def register_researcher(request):
 			c = {'title':'Welcome to PCCR','login_error':True, 'message':'Email you entered is not unique',}
 			c.update(csrf(request))
 			return render_to_response('pccrportal/index.html',c)
-
 		user= authenticate(username= request.POST['email'],password= request.POST['password'])
 		login(request, user)
-		#return redirect('/pccr/user')
-		return HttpResponse('Hello world')
+		return redirect('/pccr/researcher')
 	else:
 		c = {'title':'Welcome to Me-Med','login_error':True, 'message':'The code you entered is wrong',}
 		c.update(csrf(request))
@@ -45,7 +44,7 @@ def register_researcher(request):
 def login_register_user(request):
 		if request.POST['action']=='login':
 				return login_user(request)
-		elif request['action']=='register':
+		elif request.POST['action']=='register':
 				return register_researcher(request)
 		else:
 				c = {'title':'Patient Centric Collaborative Care','login_error':True,
@@ -63,13 +62,16 @@ def login_user(request):
 						login(request, user)
 						return redirect('/pccr/researcher')
 				else:
-						c = {'title':'Welcome to Me-Med','login_error':True, 'message':'Your account is no longer active. Register again.', }
-						c.update(csrf(request))
-						return render_to_response('forum_home.html',c)
+					c = {'title':'Patient Centric Collaborative Care','login_error':True,
+								'message':'The action you are doing is not supported',}
+					c.update(csrf(request))
+					return render_to_response('pccrportal/index.html',c)	
 		else:
-				c = {'title':'Welcome to Me-Med','login_error':True, 'message':'An account with the email does not exist.',}
-				c.update(csrf(request))
-				return render_to_response('forum_home.html',c)
+			c = {'title':'Patient Centric Collaborative Care','login_error':True,
+					'message':'The action you are doing is not supported',}
+			c.update(csrf(request))
+			return render_to_response('pccrportal/index.html',c)	
+
 
 @login_required
 def researcher_home(request):
