@@ -1,7 +1,10 @@
 import sys
 
-sys.path.append('/work/code/pccr/pc2django')
-sys.path.append('/work/code/pccr/me_med')
+sys.path.append('/home/karthik/pccr-env/pccr')
+sys.path.append('/home/karthik/pccr-env/pccr/pc2django')
+sys.path.append('/home/karthik/pccr-env/pccr/pc2django/pc2django')
+sys.path.append('/home/karthik/pccr-env/pccr/me_med')
+sys.path.append('/home/karthik/pccr-env/pccr/me_med/me_med')
 
 
 from common.connectors.Mongo import MongoConnector as mc
