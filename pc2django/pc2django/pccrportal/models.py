@@ -51,7 +51,8 @@ class Researcher(models.Model):
         res= mongo_c.find_one({'uid':user.id},collection='pccr_researcher')
         mongo_c.close_connection()
         try:
-            return {key: value for key, value in res[0].iteritems() if key!='_id' and key!='uid'}
+            #return {key: value for key, value in res[0].iteritems() if key!='_id' and key!='uid'}
+            return {key: value for key, value in res[0].iteritems()}
         except:
             return {}
 
