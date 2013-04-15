@@ -1,22 +1,20 @@
-<div id="profile-frame" class="user-tabs" style=" height:
-		auto; width: 100%; margin: 10px;">
-
+<div id="profile-frame" class="user-tabs" style="display:block">
     <div class="row-fluid">
-        <div class="span2"> <b> Name </b> </div>
-        <div id="name" class="span10"> <h2> {{researcher.name}} </h2> </div>
+        <div class="span2">Name:</div>
+        <div id="name" class="span10"> <b>{{researcher.name}}</b> </div>
     </div>
     <div class="row-fluid"> 
-        <div class="span2"> <b> Email </b> </div>
-        <div id="email" class="span10"> <h4> {{researcher.email}} </h4> </div>
+        <div class="span2">Email:</div>
+        <div id="email" class="span10"> {{researcher.email}} </div>
     </div>
     <div class="row-fluid">
-        <div class="span2"> <b> Institution </b> </div>
-        <div id="insti" class="span10"> <h3> {{researcher.institution}} </h3> </div>
+        <div class="span2">Institution:</div>
+        <div id="insti" class="span10"><b>{{researcher.institution}}</b></div>
     </div>
     <div>
         <div>  
             <a href="#edit-profile-modal" data-toggle="modal">
-                <button class="btn btn-large btn-default"> Edit profile</button>
+                <button class="btn btn-default">Edit profile</button>
             </a>
         </div>
     </div>
