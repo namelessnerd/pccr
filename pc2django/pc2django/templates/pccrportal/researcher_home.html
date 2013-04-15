@@ -24,8 +24,8 @@ $('#projects').click();
 
 {% block main_content%}
 <div> 
-    <div class="container" style="width: 80%; min-height: 300px; text-align: center;  color: white; background:
-		 rgba(19,19,19,0.6); border: 1px dotted rgb(19,19,19); border-radius: 10px;">
+    <div class="container" id="bigcontainer">
+        <h1> My Dashboard </h1>
         <div class="row-fluid">
             <div class="span2"> 
                 <div id="projects" class="project-tab" > Projects </div>
@@ -61,6 +61,6 @@ $('#projects').click();
         }
     });
 		
-	{% endblock %}
+{% endblock %}
 
 

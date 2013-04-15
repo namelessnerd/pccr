@@ -1,7 +1,5 @@
 .landing{
-
 background-color: #F2F2F2; border-radius: 10px; height: 100%; 
-
 }
 
 .promo-text{
@@ -19,46 +17,106 @@ a{
 	color:#5686ac;
 }
 
-/*
-section.body:after{
-	position: absolute;
-	width: 100%;
-	height: 44px;
-	z-index: 1;
-	content: ' ';
-	background: url(/static/img/landing_header_shadow.592656.png) top center no-repeat;
-	top: 407px;
-}
-*/
-
+/* Researcher Home 
+/* PROJECTS */
 .project-tab{
-	border-radius: 5px; 
-	margin-top: 10px;
-    margin-left: 10px;
-    height: 40px;
-    padding-top: 20px;
+	margin-bottom: 4%;
+    margin-left: 4%;
+    height: 5%;
+    padding-top: 20%;
 	cursor: pointer;
-    border: 3px solid black;
-    background: rgba(192,192,192,0.7);
     text-align: center;
     color: white;
+   	border-radius: 5px;
 }
 
 .project-label{
-	border-radius: 2px; 
-    margin-left: 10px;
-    height: 100px;
+    padding: 1%;
+    height: auto;
 	cursor: pointer;
-    border: 3px dotted black;
-    background: rgba(192,192,192,0.7);
-    text-align: center;
+    background: #04376C;
     color: white;
+   	border-radius: 5px;
 }
 
 .user-tabs{
     display: none;
 }
 
+#bigcontainer{
+	width: 80%; 
+	min-height:350px; 
+	color: white; 
+	background: rgba(19,19,19,0.8); 
+	padding: 2%;
+}
+
+#projects{background: #00A779;}
+#profile{background: #0C58A6;}
+#messages{background: #FF9900;}
+#collab{background: #FF5C00;}
+
+#projects-frame{
+	padding: 1%;
+	height: auto; 
+	width: auto;
+	background: #909090;
+	border-radius: 5px;
+}
+
+#new-project{
+	width: auto;
+	background: #FFC773;
+	padding:2%;
+	border-radius: 5px;
+}
+
+.new-row{
+	height: auto; 
+	margin-top: 2%;
+}
+
+.project-desc{
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+
+}
+
+.project_desc a.hover{
+	color: inherit;
+}
+
+.options{
+	margin-top: 10%;
+}
+
+/* NEW PROJECT MODAL */
+.modal-header{
+	background: white;
+	color: black;
+}
+
+#add-project-modal .modal-body {
+	/*max-height: 900px;*/
+	/*width: 50%; */
+	height: auto;
+	overflow: auto;
+	color: black;
+}
+
+/* PROFILE */
+#profile-frame{
+	width: 90%; 
+	height:auto;	
+	color: white; 
+	padding: 2%;
+	background: #909090;
+}
+
+#name{font-size: 24;}
+
+/* Homepage */
 section.body {
 	background: url(/static/img/noise.592656.png) #edebde;
 	position: relative;
@@ -88,19 +146,7 @@ input[class=input-large] {
           border-radius: 6px;
 	}
 
-.project-desc{
-	color: white;
-	text-align: left;
-	cursor: pointer;
-}
 
-.project_desc a.hover{
-	color: inherit;
-}
-
-#add-project-modal .modal-body {
-	max-height: 900px;
-}
 
 /* imported from study */
 /* Study Page */
@@ -116,8 +162,6 @@ input[class=input-large] {
 	padding: 1%;
 }
 
-
-
 .content-block{
 	/*margin-top: 2%;*/
 	background: rgba(0,0,0,0.6);
@@ -132,8 +176,19 @@ input[class=input-large] {
 }
 
 /* Modal */
-
 .recommender-box{
 	border-top: 1px solid rgba(0,0,0,0.4);
 	padding-top: 2%;
 }
+
+/*
+section.body:after{
+	position: absolute;
+	width: 100%;
+	height: 44px;
+	z-index: 1;
+	content: ' ';
+	background: url(/static/img/landing_header_shadow.592656.png) top center no-repeat;
+	top: 407px;
+}
+*/
