@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 from backend.sae import opencalais as o
 from pccrportal.models import Project, Researcher
+from common.matcher import Match
 import simplejson
 
 
@@ -111,13 +112,15 @@ def project(request,pid):
 					'show_nav':1,
                     'tags':Project.get_tags(pid)
 					}
+	
 	if request.user:
 			inputs.update({'user_signed':True, 'userid':request.user.username,})
 			if current_project.posted_by==request.user:
 					inputs.update({'current_researcher_is_project_owner':True,})
 
 	inputs.update(csrf(request))
-	inputs['matches']=[{'name':name, 'topic':'Marzipan'} for  name in ['Brad Ruderman','Annie Chiang','Danny Daniels',]]
+	#inputs['matches']=[{'name':name, 'topic':'Marzipan'} for  name in ['Brad Ruderman','Annie Chiang','Danny Daniels',]]
+	inputs['matches']= Match.match(pid)
 	return render_to_response('pccrportal/study.html',inputs,)
 
 def user_modal(request):
