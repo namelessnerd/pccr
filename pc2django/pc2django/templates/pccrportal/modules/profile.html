@@ -1,0 +1,78 @@
+<div id="profile-frame" class="user-tabs" style=" height:
+		auto; width: 100%; margin: 10px;">
+
+    <div class="row-fluid">
+        <div class="span2"> <b> Name </b> </div>
+        <div id="name" class="span10"> <h2> {{researcher.name}} </h2> </div>
+    </div>
+    <div class="row-fluid"> 
+        <div class="span2"> <b> Email </b> </div>
+        <div id="email" class="span10"> <h4> {{researcher.email}} </h4> </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span2"> <b> Institution </b> </div>
+        <div id="insti" class="span10"> <h3> {{researcher.institution}} </h3> </div>
+    </div>
+    <div>
+        <div>  
+            <a href="#edit-profile-modal" data-toggle="modal">
+                <button class="btn btn-large btn-default"> Edit profile</button>
+            </a>
+        </div>
+    </div>
+    <div id="edit-profile-modal" class="modal hide fade">
+      <div class="modal-header" style="color: black">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Edit Profile</h3>
+      </div>
+      <div class="modal-body">
+          <form id="edit-profile" class="form-horizontal"  style="color: black"> 
+				{% csrf_token%}
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Name</label>
+                <div class="controls">
+                    <input id="form-name" type="text" name="name" id="inputEmail" placeholder="{{researcher.name}}" value="{{researcher.name}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email</label>
+                <div class="controls">
+                    <input id="form-email" type="text" id="inputEmail" name="email" value="{{researcher.email}}" placeholder="{{researcher.email}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Institution</label>
+                <div class="controls">
+                    <input id="form-insti" name="institution" id="inputPassword" value="{{researcher.institution}}" placeholder="{{researcher.institution}}">
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn">Close</a>
+        <a id="save-profile" class="btn btn-primary">Save changes</a>
+      </div>
+    </div>
+    <script language="javascript">
+        $('#save-profile').on({
+            'click': function(){
+                $.ajax({
+                    type:'POST',
+                    url:'/pccr/researcher/save_profile',
+                    data:$('#edit-profile').serialize(),
+                    success: function(data){
+                        if (data.status){
+                        alert($('#form-name').val());
+                        $('#name > h2').html($('#form-name').val());
+                        $('#email > h4 ').text($('#form-email').val());
+                        $('#insti > h3 ').text($('#form-insti').val());
+                        }
+                        $('#edit-profile-modal').modal('hide');
+                    },
+                    dataType:'json'
+                });
+
+            }
+        });
+    </script>
+</div>

@@ -7,7 +7,9 @@ from django.core.context_processors import csrf
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
-from pccrportal.models import Project
+from backend.sae import opencalais as o
+from pccrportal.models import Project, Researcher
+import simplejson
 
 
 def foo(request):
@@ -53,7 +55,6 @@ def login_register_user(request):
 				return render_to_response('pccrportal/index.html',c)
 
 def login_user(request):
-		print request
 		username= request.POST['email']
 		password= request.POST['password']
 		user= authenticate(username= username, password= password)
@@ -65,37 +66,38 @@ def login_user(request):
 					c = {'title':'Patient Centric Collaborative Care','login_error':True,
 								'message':'The action you are doing is not supported',}
 					c.update(csrf(request))
-					return render_to_response('pccrportal/index.html',c)	
+					return render_to_response('pccrportal/index.html',c)
 		else:
 			c = {'title':'Patient Centric Collaborative Care','login_error':True,
 					'message':'The action you are doing is not supported',}
 			c.update(csrf(request))
-			return render_to_response('pccrportal/index.html',c)	
+			return render_to_response('pccrportal/index.html',c)
 
 
 @login_required
 def researcher_home(request):
-	user_projects= Project.objects.filter(posted_by=request.user)
-	template_dict= {
+    template_dict= {
 			'title':'PCCR Researcher Home','link_class_home':'active',
 			'show_nav':1,
 			'user_signed':True,
 			'userid':request.user.username,
-			'project_list': user_projects,
-			}
-	template_dict.update(csrf(request))
-	print user_projects
-	return render_to_response('pccrportal/researcher_home.html',template_dict)
+            'project_list':Project.objects.filter(posted_by=request.user),
+            'researcher':Researcher.get_details(request.user),
+            }
+
+    template_dict.update(csrf(request))
+    print template_dict
+    return render_to_response('pccrportal/researcher_home.html',template_dict)
 
 @login_required
 def add_project(request):
-		print request
-		current_project= Project(project_title=request.POST['project-title'],
-						project_url=request.POST['pcori-url'],
-						project_description= request.POST['project-description'],
-						posted_by= request.user)
-		current_project.save()
-		return redirect('/pccr/researcher')
+    current_project= Project(project_title=request.POST['project-title'],
+                    project_url=request.POST['pcori-url'],
+                    project_description= request.POST['project-description'],
+                    posted_by= request.user)
+    current_project.save()
+    current_project.analyze_and_save()
+    return redirect('/pccr/researcher')
 
 
 def about(request):
@@ -103,11 +105,11 @@ def about(request):
 
 def project(request,pid):
 	current_project= Project.objects.get(id= pid)
-	print current_project.posted_by
 	inputs = {'title':current_project.project_title,
 					'description':current_project.project_description,
 					'researchers':current_project.posted_by,
 					'show_nav':1,
+                    'tags':Project.get_tags(pid)
 					}
 	if request.user:
 			inputs.update({'user_signed':True, 'userid':request.user.username,})
@@ -126,7 +128,14 @@ def user_modal(request):
 	inputs['reasons']=[{'reason':reason, 'detail':'detail'} for reason in ['Member of', 'Posts on', 'Has started posts on',]]
 	return render_to_response('pccrportal/user_modal.html',inputs,)
 
-
+@login_required
+def researcher_profile_save(request):
+    try:
+        r= Researcher()
+        r.save(request.POST['name'], request.POST['email'],request.POST['institution'], request.user)
+        return HttpResponse(simplejson.dumps({'status':1,}))
+    except:
+        return HttpResponse(simplejson.dumps({'status':0}))
 
 #def register_participant(request):
 	#return render_to_response('pccrportal/register.html')

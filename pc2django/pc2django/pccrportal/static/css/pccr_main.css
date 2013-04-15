@@ -32,11 +32,33 @@ section.body:after{
 */
 
 .project-tab{
-	border-top-right-radius: 10px; 
-	border-top-left-radius:10px; 
-	margin-left: 10px;
+	border-radius: 5px; 
+	margin-top: 10px;
+    margin-left: 10px;
+    height: 40px;
+    padding-top: 20px;
 	cursor: pointer;
+    border: 3px solid black;
+    background: rgba(192,192,192,0.7);
+    text-align: center;
+    color: white;
 }
+
+.project-label{
+	border-radius: 2px; 
+    margin-left: 10px;
+    height: 100px;
+	cursor: pointer;
+    border: 3px dotted black;
+    background: rgba(192,192,192,0.7);
+    text-align: center;
+    color: white;
+}
+
+.user-tabs{
+    display: none;
+}
+
 section.body {
 	background: url(/static/img/noise.592656.png) #edebde;
 	position: relative;
@@ -66,7 +88,7 @@ input[class=input-large] {
           border-radius: 6px;
 	}
 
-.project_desc{
+.project-desc{
 	color: white;
 	text-align: left;
 	cursor: pointer;
@@ -74,6 +96,10 @@ input[class=input-large] {
 
 .project_desc a.hover{
 	color: inherit;
+}
+
+#add-project-modal .modal-body {
+	max-height: 900px;
 }
 
 /* imported from study */

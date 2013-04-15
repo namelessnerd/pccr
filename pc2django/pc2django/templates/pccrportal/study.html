@@ -13,6 +13,16 @@
 			<div class="content-block">
 				{{ description }}
 			</div>
+            <div class="content-block">
+                <div class="row-fluid">
+                    <div class="span3"> <b>Extracted Entities</b> <i>(for sake of simplicity, we do not show entity types. However, we note that they will be used in matching)</i>.</div>
+                    <div class="span9">
+                        {% for tag in tags %}
+                            {{tag|title}},
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
 		</div>
 		<div class="container span6 content-block">
 		{% block content %}

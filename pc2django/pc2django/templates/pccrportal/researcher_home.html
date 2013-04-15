@@ -15,52 +15,39 @@ $('.project-tab').on({
 			$('#'+current.attr('id')+'-frame').css({'display': 'block'});
 			doc.data('current','#'+current.attr('id'));
 			doc.data('current-vis', '#'+current.attr('id')+'-frame');
-	
 	}
-
 });
-$('#my-projects').click();
+$('#projects').click();
  
 {% endblock %}
 
 
 {% block main_content%}
 <div> 
-		
-<!-- 	<div class="container" style="position: relative; top: 10px;">
- -->  	    <!-- Main hero unit -->
- <div class="container" style="text-align: center;  color: white; background:
+    <div class="container" style="width: 80%; min-height: 300px; text-align: center;  color: white; background:
 		 rgba(19,19,19,0.6); border: 1px dotted rgb(19,19,19); border-radius: 10px;">
- <h2> Welcome back, {{userid}}</h2>
-
- 	<div class="row-fluid">
-		<div id="my-projects" class="span4 project-tab" style="background: blue;
-				margin-left: 10px;"> <h3> My Projects </h3> </div>
-		<div id="new-project" class="span4 project-tab" style="background: blue"><h3> New Project </h3> </div>
- 	</div>
- 	<div class="project-description" style="margin: 0 10px 10px 10px;";>
-			{% include 'pccrportal/myprojects.html' %}
-			{% include 'pccrportal/newproject.html' %}
-	</div>
-	<!-- <hr class="soften"/> -->
-	<section id="about">
-	</section>
-</div>
-	<!-- <hr class="soften"/> -->
-	
-	
-
-
+        <div class="row-fluid">
+            <div class="span2"> 
+                <div id="projects" class="project-tab" > Projects </div>
+                <div id="profile" class="project-tab" > Profile</div>
+                <div id="messages" class="project-tab" > Messages </div>
+                <div id="collab" class="project-tab"> Collaborators </div>
+            </div>
+            <div class="span10"> 
+                <div class="row-fluid">
+			        {% include 'pccrportal/modules/projects.html' %}
+			        {% include 'pccrportal/modules/newproject.html' %}
+			        {% include 'pccrportal/modules/profile.html' %}
+			        {% include 'pccrportal/modules/messages.html' %}
+			        {% include 'pccrportal/modules/collab.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block additional_scripts %}
 		
-	$('.project-tab').on({
-    
-        'click': function(){
-        }
-    });
-
-	$('#pccr-register').on({
+		$('#pccr-register').on({
     
         'click': function(){
 					$.ajax({
@@ -73,12 +60,7 @@ $('#my-projects').click();
         	return false;
         }
     });
-		$('.start-project').on({
-		 'click':function(){
-				$('#new-project').click();
-		 }
-		});
-
+		
 	{% endblock %}
 
 

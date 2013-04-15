@@ -11,11 +11,12 @@ urlpatterns = patterns('',
   url(r'^pccr/register/', 'pccrportal.views.login_register_user',name='register_researcher'),
 	url(r'^pccr/logout$','pccrportal.views.home',name='pccr_home'),
 	url(r'^pccr/researcher$','pccrportal.views.researcher_home',name='pccr_home'),
+	url(r'^pccr/researcher/save_profile$','pccrportal.views.researcher_profile_save',name='pccr_home'),
 	url(r'^pccr/add_project$','pccrportal.views.add_project',name='pccr_home'),
 	url(r'^pccr/about$','pccrportal.views.about',name='pccr_about'),
   url(r'^pccr/project/(\d+)','pccrportal.views.project',name='pccr_study'),
-  url(r'^user','pccrportal.views.user_modal',name='pccr_user_modal'),  
-  url(r'^foo','pccrportal.views.foo',name='pccr_foo'),  
+  url(r'^user','pccrportal.views.user_modal',name='pccr_user_modal'),
+  url(r'^foo','pccrportal.views.foo',name='pccr_foo'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # Uncomment the next line to enable the admin:

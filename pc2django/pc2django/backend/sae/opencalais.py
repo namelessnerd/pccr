@@ -1,4 +1,4 @@
-from pc2django.pc2django.backend.sae import calais
+import calais
 import pprint
 import sets
 
@@ -6,7 +6,7 @@ import sets
 def fetch_calais(contents):
 	API_KEY='hpay2cvr76b8e35qa568svcm'
 	calais_key = calais.Calais(API_KEY, submitter="python-calais demo")
-   
+
 	try:
 		result = calais_key.analyze(contents)
 		#result.print_summary()
@@ -19,9 +19,9 @@ def fetch_calais(contents):
 				return -1
 			except ValueError, v:
 				print v
-				return -1	
+				return -1
 		'''
-	extracted_tags=[]	
+	extracted_tags=[]
 	try:
 		extracted_tags+=[tag['name'].lower() for tag in result.socialTag]
 	except Exception, e:
@@ -34,7 +34,6 @@ def fetch_calais(contents):
 	try:
 		extracted_tags+=[entity['name'].lower() for entity in result.entities]
 	except Exception, e:
-		print 'Exception in file {0}'.format(filename)
-		pass   
+		pass
 	return [extracted_tag for extracted_tag in sets.Set(extracted_tags)]
 
