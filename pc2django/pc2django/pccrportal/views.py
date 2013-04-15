@@ -10,6 +10,9 @@ from django.contrib.auth.decorators import login_required
 from backend.sae import opencalais as o
 from pccrportal.models import Project, Researcher
 from common.matcher import Match
+from me_med.appy import views
+
+
 import simplejson
 
 
