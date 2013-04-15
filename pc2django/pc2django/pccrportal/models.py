@@ -52,7 +52,8 @@ class Researcher(models.Model):
         mongo_c.close_connection()
         try:
             #return {key: value for key, value in res[0].iteritems() if key!='_id' and key!='uid'}
-            return {key: value for key, value in res[0].iteritems()}
+            #return {key: value for key, value in res[0].iteritems()}
+			return res[0]
         except:
             return {}
 
