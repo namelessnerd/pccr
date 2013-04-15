@@ -80,3 +80,11 @@ def add_conversation(request):
 			return HttpResponse(simplejson.dumps({'status':0,}))
 
 
+# a hack to get all users. need a better approach later
+
+def get_users(uids):
+	return [user.email for user in [User.objects.get(id=uid) for uid in uids]]
+
+
+
+

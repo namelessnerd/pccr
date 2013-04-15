@@ -16,7 +16,6 @@ class Project(models.Model):
         try:
             res= opencalais.fetch_calais(self.project_description)
             if res:
-                print res
                 mongo_c= mc(db='pccr')
                 mongo_c.update({'pid':self.id},
                             {'project_title':self.project_title,
@@ -39,7 +38,6 @@ class Project(models.Model):
                                 collection='pccr_project')
         mongo_c.close_connection()
         try:
-            print res
             return res[0]['project_tags']
         except Exception, e:
             print e
@@ -66,7 +64,6 @@ def analyze_and_save(sender, **kwargs):
     try:
         res= opencalais.fetch_calais(sender.project_description)
         if res:
-            print res
             mongo_c= mc(db='pccr')
             mongo_c.update({'pid':sender.id},
                         {'project_title':sender.project_title,
