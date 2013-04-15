@@ -124,6 +124,8 @@ def project(request,pid):
 	inputs.update(csrf(request))
 	#inputs['matches']=[{'name':name, 'topic':'Marzipan'} for  name in ['Brad Ruderman','Annie Chiang','Danny Daniels',]]
 	inputs['matches']= Match.match(pid)
+	print '*'*20
+	print views.get_users([26,])
 	return render_to_response('pccrportal/study.html',inputs,)
 
 def user_modal(request):
