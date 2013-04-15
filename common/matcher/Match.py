@@ -43,4 +43,5 @@ def match(pid):
 	sorted_user_scores= sorted(user_score_set.iteritems(), key=
 			operator.itemgetter(1))
 	print sorted_user_scores[-5:]
+	print views.get_users([int(uid[0]) for uid in sorted_user_scores[-5:]])
 	return [int(uid[0]) for uid in sorted_user_scores[-5:]]
