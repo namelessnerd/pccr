@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 	url(r'^memed/logout/$','appy.views.logout_user',name='memed_user_logout'),
 	url(r'^memed/registerme/$','appy.views.registerme',name='memed_user_register'),
 	url(r'^memed/user/$','appy.views.show_profile',name='memed_user_register'),
+	url(r'^memed/user/profile/(\d+)/$','appy.views.show_posts',name='memed_user_register'),
 	url(r'^memed/user/add_conversation$','appy.views.add_conversation',name='memed_user_register'),
 	url(r'^memed/explore/$','appy.views.forum_explore',name='forum_explore'),
     # Examples:

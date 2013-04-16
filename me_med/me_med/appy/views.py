@@ -82,8 +82,9 @@ def add_conversation(request):
 
 # a hack to get all users. need a better approach later
 
-def get_users(uids):
-	return [user.username for user in [User.objects.get(id=26) for uid in uids]]
+def show_posts(request, uid):
+	conversations= Conversation.objects.get(posted_by=uid)
+	return render_to_response('user_posts.html', {'posts':conversations})
 
 
 
