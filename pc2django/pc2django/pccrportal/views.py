@@ -123,11 +123,11 @@ def project(request,pid):
 
 	inputs.update(csrf(request))
 	#inputs['matches']=[{'name':name, 'topic':'Marzipan'} for  name in ['Brad Ruderman','Annie Chiang','Danny Daniels',]]
-	
+	inputs['matches']=[{'name':user_score[0], 'network':'MeMed', 'topic':user_score[1],} for user_score in Match.match(pid)]
 	return render_to_response('pccrportal/study.html',inputs,)
 
 def print_test(pid):
-	inputs['matches']= Match.match(pid)
+	#inputs['matches']= 
 	print '*'*20
 	print views.get_users([26,])
 

@@ -1,6 +1,5 @@
 import calais
 import pprint
-import sets
 
 
 def fetch_calais(contents):
@@ -8,7 +7,7 @@ def fetch_calais(contents):
 	calais_key = calais.Calais(API_KEY, submitter="python-calais demo")
 
 	try:
-		result = calais_key.analyze(contents)
+		result = calais_key.analyze(contents.encode('utf-8'))
 		#result.print_summary()
   	except Exception,e:
 		print e
@@ -25,15 +24,18 @@ def fetch_calais(contents):
 	try:
 		extracted_tags+=[tag['name'].lower() for tag in result.socialTag]
 	except Exception, e:
+		print e
 		pass
 
 	try:
 		extracted_tags+= [topic['categoryName'].lower() for topic in result.topics]
 	except Exception, e:
+		print e
 		pass
 	try:
 		extracted_tags+=[entity['name'].lower() for entity in result.entities]
 	except Exception, e:
+		print e
 		pass
-	return [extracted_tag for extracted_tag in sets.Set(extracted_tags)]
+	return [extracted_tag for extracted_tag in frozenset(extracted_tags)]
 

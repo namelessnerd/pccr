@@ -5,30 +5,32 @@ sys.path.append('/home/karthik/pccr-env/pccr/pc2django')
 sys.path.append('/home/karthik/pccr-env/pccr/pc2django/pc2django')
 sys.path.append('/home/karthik/pccr-env/pccr/me_med')
 sys.path.append('/home/karthik/pccr-env/pccr/me_med/me_med')
-
+#import os
+#os.environ['DJANGO_SETTINGS_MODULE']= 'settings'
 
 from common.connectors.Mongo import MongoConnector as mc
-from pc2django.pccrportal.models import Project
+from pccrportal.models import Project
 import operator
-from me_med.appy import views
+
+
 
 def match(pid):
 	#django query to find all patients who have one or more entities matching
 	# researcher project profile
 	m= mc(db='pccr')	
 	tags= Project.get_tags(pid)
-	res= m.find({'tags':{'$in':tags}}, collection='patient_tags')
+	res= m.find({'tags':{'$in':tags}}, collection='patient_tags_new')
 	user_tag_set={}
 	for r in res:
 		try:
-			user_tag_set[str(r['uid'])].append(r['tags'])
+			user_tag_set[str(r['username'])].append(r['tags'])
 		except:
-			user_tag_set[str(r['uid'])]=[r['tags']]
+			user_tag_set[str(r['username'])]=[r['tags']]
 	'''
 		try:
-			user_tag_set[str(r['uid'])].append(r[tags])
+			user_tag_set[str(r['username'])].append(r[tags])
 		except:
-			user_tag_set[str(r['uid'])]= []
+			user_tag_set[str(r['username'])]= []
 	'''
 	user_score_set={}
 	tags= frozenset(tags)
@@ -42,5 +44,6 @@ def match(pid):
 
 	sorted_user_scores= sorted(user_score_set.iteritems(), key=
 			operator.itemgetter(1))
-	print sorted_user_scores[-5:]
-	return [int(uid[0]) for uid in sorted_user_scores[-5:]]
+	return sorted_user_scores[-5:]
+
+match(1)

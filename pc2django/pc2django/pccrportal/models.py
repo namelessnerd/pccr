@@ -28,6 +28,7 @@ class Project(models.Model):
                 mongo_c.close_connection()
         except Exception, e:
             print e
+            print 'EXCEPTION CAUGHT'
             pass
 
     @staticmethod

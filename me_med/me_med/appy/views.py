@@ -83,7 +83,7 @@ def add_conversation(request):
 # a hack to get all users. need a better approach later
 
 def get_users(uids):
-	return [user.username for user in [User.objects.get(id=uid) for uid in uids]]
+	return [user.username for user in [User.objects.get(id=26) for uid in uids]]
 
 
 
