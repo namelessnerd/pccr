@@ -1,9 +1,9 @@
 {% extends 'includes/page_header.html' %}
 {% block forum_content %}
 <div class="container-fluid splash" >
-		<div class="container">
+		<div class="container" style="background: rgba(192,192,192,0.6); max-height: 100%; overflow: auto;">
 			<div>
-				<h3> Showing for {{user}}</h3>
+				<h3> Showing conversations for {{username}}</h3>
 				{% for post in posts %}
 					<div style="margin-top: 10px; border: 1px solid black">
 						<div style="margin-top: 2px"> {{post.conversation_title}}</div>
