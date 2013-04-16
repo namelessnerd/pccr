@@ -1,0 +1,16 @@
+{% extends 'includes/page_header.html' %}
+{% block forum_content %}
+<div class="container-fluid splash" >
+		<div class="container">
+			<div>
+				<h3> Showing for {{user}}</h3>
+				{% for post in posts %}
+					<div style="margin-top: 10px; border: 1px solid black">
+						<div style="margin-top: 2px"> {{post.conversation_title}}</div>
+						<div style="margin-top: 2px"> {{post.conversation_message}}</div>
+					</div>
+				{% endfor %}
+			</div>
+			
+	</div>	
+{% endblock %}
