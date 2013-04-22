@@ -31,7 +31,7 @@
 					<div class="row-fluid">
 						<div class="span4 content-block">
 							{% include 'includes/user_modal.html' %}
-							<a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">{{match.name}}</a>
+							<a data-toggle="modal" href="http://ec2-50-17-198-95.compute-1.amazonaws.com/memed/user/profile/{{match.uid}}" target="_blank" class="btn btn-primary btn-large">{{match.name}}</a>
 						</div>
 						<div class="span8 content-block">
 							{{match.topic}}

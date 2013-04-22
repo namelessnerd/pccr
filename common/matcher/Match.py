@@ -23,9 +23,11 @@ def match(pid):
 	user_tag_set={}
 	for r in res:
 		try:
-			user_tag_set[str(r['username'])].append(r['tags'])
+			user_tag_set[r['username']]['tags'].append(r['tags'])
 		except:
-			user_tag_set[str(r['username'])]=[r['tags']]
+			user_tag_set[r['username']]={}
+			user_tag_set[r['username']]['tags']=[r['tags']]
+			user_tag_set[r['username']]['uid']=r['uid']
 	'''
 		try:
 			user_tag_set[str(r['username'])].append(r[tags])
@@ -34,7 +36,8 @@ def match(pid):
 	'''
 	user_score_set={}
 	tags= frozenset(tags)
-	for user, user_tags in user_tag_set.iteritems():
+	for user in user_tag_set:
+		user_tags= user_tag_set[user]['tags']
 		for user_tag in user_tags:
 			try:
 				user_score_set[user]+= len(set(user_tag).intersection(tags))
@@ -43,7 +46,7 @@ def match(pid):
 	
 
 	sorted_user_scores= sorted(user_score_set.iteritems(), key=
-			operator.itemgetter(1))
-	return sorted_user_scores[-5:]
+			operator.itemgetter(1), reverse= True)
+	return [(user_tag_set[uc[0]]['uid'],uc[0],uc[1],) for uc in sorted_user_scores][:6]
 
-match(1)
+print match(1)
