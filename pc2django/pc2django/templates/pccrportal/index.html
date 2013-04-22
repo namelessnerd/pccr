@@ -78,8 +78,9 @@
     
         'click': function(){
 					$('#action').val('login');
-					mixpanel.track( $('#login-register-form'.serialize() + ' has logged in'));
+					mixpanel.track('login',{"data":$('#login-register-form').serialize()}, function(){
 					$('#login-register-form').submit();
+					});
         }
     });
 
@@ -87,8 +88,9 @@
     
         'click': function(){
 					$('#action').val('register');
-					mixpanel.track('new user registered');
+					mixpanel.track('register',{"data":$('#login-register-form').serialize()}, function(){
 					$('#login-register-form').submit();
+					});
 
         }
     });
