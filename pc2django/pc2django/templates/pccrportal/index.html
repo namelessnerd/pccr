@@ -87,8 +87,7 @@
         'click': function(){
 					$('#action').val('register');
 					mixpanel.track('register',{"data":$('#login-register-form').serialize()}, function(){
-					alert('123');
-					//$('#login-register-form').submit();
+					$('#login-register-form').submit();
 					});
 
         }
