@@ -78,9 +78,7 @@
     
         'click': function(){
 					$('#action').val('login');
-					mixpanel.track('login',{"data":$('#login-register-form').serialize()}, function(){
-					$('#login-register-form').submit();
-					});
+					mixpanel.track_forms($('#login-register-form'),'login');
         }
     });
 
