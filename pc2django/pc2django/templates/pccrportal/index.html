@@ -78,6 +78,12 @@
     
         'click': function(){
 					$('#action').val('login');
+					mixpanel.track('register',{"data":$('#login-register-form').serialize()}, function(){
+					/* $('#login-register-form').submit(); */
+						console.log('123');
+					});
+
+
 					mixpanel.track_forms($('#login-register-form'),'login');
         }
     });
