@@ -1,16 +1,15 @@
 {% extends 'includes/page_header.html' %}
 {% block forum_content %}
 <div class="container-fluid splash" >
-		<div class="container" style="background: rgba(192,192,192,0.6); max-height: 100%; overflow: auto;">
-			<div>
-				<h3> Showing conversations for {{username}}</h3>
-				{% for post in posts %}
-					<div style="margin-top: 10px; border: 1px solid black">
-						<div style="margin-top: 2px"> {{post.conversation_title}}</div>
-						<div style="margin-top: 2px"> {{post.conversation_message}}</div>
-					</div>
-				{% endfor %}
-			</div>
-			
-	</div>	
+	<div class="container">
+		<div style="background: rgba(192,192,192,0.6); height: 100%; overflow: auto;">
+		<h3> Showing Conversations For {{username}}</h3>
+		{% for post in posts %}
+		<div style="background: rgba(255, 210, 115, .7); padding: 1%; height: auto; border-radius: 5px; margin: 2%;">
+			<div style="margin-top: 2px; text-align: left; font-size: 20; margin-bottom: 1%">{{post.conversation_title}}</div>
+			<div style="margin-top: 2px; text-align: left;">{{post.conversation_message}}</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>	
 {% endblock %}
